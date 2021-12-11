@@ -649,7 +649,7 @@
                 <h3>widget creation</h3>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-5 col-md-6 col-sm-12">
                     <div class="foo_widget footer_sub_form">
                         <!-- <h5>Newsletter</h5> -->
                         <p>
@@ -682,13 +682,15 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-7 col-md-6 col-sm-12">
                     <div class="foo_widget footer_sub_form">
                         <p>Place this code at in <code>body</code> tag</p>
-                        <div id="generatedJScode"></div>
+                        <div id="generatedJScode" class="code-preview"></div>
                         <p>&nbsp;</p>
-                        <p>Place this button as per your UI/UX requirement</p>
-                        <div id="generatedHTMLcode"></div>
+                        <p>Place this button as per your <code>UI/UX</code> requirement</p>
+                        <div id="generatedHTMLcode" class="code-preview"></div>
+                        <br />
+                        <button id='verify_btn_preview'></button>
                     </div>
                 </div>
             </div>
@@ -1158,6 +1160,14 @@ x                <div class="item">
         });
         tokenstandard.addEventListener("change", (event) => {
             event.preventDefault();
+            if(tokenstandard.value === 'erc721') {
+                tokenid.value = "";
+                tokenid.disabled = true;
+                tokenid.placeholder = "--- Not required ---";
+            } else {
+                tokenid.disabled = false;
+                tokenid.placeholder = "";
+            }
             generateCode();
         });
         tokenid.addEventListener("keyup", (event) => {
@@ -1197,11 +1207,18 @@ x                <div class="item">
             + ' <\/script> \n';
 
             var generatedHTMLcode = document.getElementById("generatedHTMLcode");
-            generatedHTMLcode.innerText = '<button id=\'verify_btn\'>' + (btntext.value ? btntext.value : 'Verify your NFT') + '</button>';   
+            generatedHTMLcode.innerText = '<button id=\'verify_btn\'>' + (btntext.value ? btntext.value : 'Verify your NFT') + '</button>';  
+            
+            // SETUP PREVIEW BUTTON
+            var previewBtn = document.getElementById("verify_btn_preview");
+            previewBtn.innerText = (btntext.value ? btntext.value : 'Verify your NFT');
+
         }
         generateCode();
+        tokenid.disabled = true;
+        tokenid.placeholder = "--- Not required ---";
     </script>
-
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </body>
 
 </html>

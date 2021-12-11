@@ -2,8 +2,28 @@
     background-color: black;
     color: white;
     font-weight: 500;
-    padding: 10px;
+    padding: 10px 14px;
     font-size: 110%;
     border: 2px solid #4e4e4e;
     border-radius: 12px;
+    cursor: pointer;
+}
+
+#verify_btn_preview {
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    padding: 10px 14px;
+    font-size: 110%;
+    border: 2px solid #4e4e4e;
+    border-radius: 12px;
+    cursor: default;
+}
+
+.code-preview {
+    background: #eeeeee;
+    color: gray;
+    padding: 12px 16px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
 }
