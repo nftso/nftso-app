@@ -659,8 +659,8 @@
                         <form id="form" action="/" method="post" accept-charset="utf-8">
                             <label style="padding-left: 0.3rem;" for="network">Network</label>
                             <select class="con-field" name="network" id="network">
-                                <option value="Ethereum">Ethereum</option>
                                 <option value="Polygon">Polygon</option>
+                                <option disabled value="Ethereum">Ethereum (Coming Soon)</option>
                             </select>
 
                             <label style="padding-left: 0.3rem; padding-top: 12px;" for="nftaddress">NFT Contract Address</label>
@@ -671,6 +671,9 @@
                                 <option value="erc721">ERC 721</option>
                                 <option value="erc1155">ERC 1155</option>
                             </select>
+
+                            <label style="padding-left: 0.3rem; padding-top: 12px;" for="tokenid">Token ID</label>
+                            <input class="con-field" name="tokenid" id="tokenid" type="text">
 
                             <label style="padding-left: 0.3rem; padding-top: 12px;" for="btntext">Button text</label>
                             <input class="con-field" name="btntext" id="btntext" type="text" value="Verify your NFT">
@@ -1138,6 +1141,7 @@ x                <div class="item">
         const network = document.getElementById("network");
         const nftaddress = document.getElementById("nftaddress");
         const tokenstandard = document.getElementById("tokenstandard");
+        const tokenid = document.getElementById("tokenid");
         const btntext = document.getElementById("btntext");
 
         const origin = window.location.origin;
@@ -1156,6 +1160,10 @@ x                <div class="item">
             event.preventDefault();
             generateCode();
         });
+        tokenid.addEventListener("keyup", (event) => {
+            event.preventDefault();
+            generateCode();
+        });
         btntext.addEventListener("keyup", (event) => {
             event.preventDefault();
             generateCode();
@@ -1163,10 +1171,30 @@ x                <div class="item">
 
         function generateCode() {
             var generatedJScode = document.getElementById("generatedJScode");
-            generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script>'
-            + '<script> function verifyNFT() { '
-            + 'openVerificationPopup(' + '\'' +network.value + '\', ' + '\'' +  nftaddress.value + '\', ' + '\'' + tokenstandard.value + '\'' + ');'
-            + '}<\/script>';
+            // generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script>'
+            // + '<script> function verifyNFT() { '
+            // + 'openVerificationPopup(' + '\'' +network.value + '\', ' + '\'' +  nftaddress.value + '\', ' + '\'' + tokenstandard.value + '\', ' + '\'' + tokenid.value + '\'' + ');'
+            // + '}<\/script>';
+
+            generatedJScode.innerText = '<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/main.css"> \n'
+            + '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script> \n'
+            + '<script type =\'text/javascript\'> \n'
+            + 'const verify_btn = document.getElementById(\'verify_btn\'); \n'
+            + 'verify_btn.addEventListener("click", (event) => { \n'
+            + 'event.preventDefault(); \n'
+            + 'manage_ethereum(\' ' + network.value + ' \', \'' + nftaddress.value + '\', \'' + tokenstandard.value + '\', \'' + tokenid.value + '\').then((res) => { \n'
+            + 'if(res) { \n'
+            + '   // USER OWNS YOUR NFT TOKEN \n'
+            + '   // DEFINE YOUR ACTIONS FOR NFT HOLDERS \n'
+            + '} else { \n'
+            + '   // USER DOES NOT OWN YOUR NFT TOKEN \n'
+            + '   // DEFINE YOUR ACTIONS FOR NON HOLDERS \n'
+            + '} \n'
+            + '}).catch((err) => { \n'
+            + 'alert("Failed to connect to MetaMask, Try to reload the page"); \n'
+            + '}); \n'
+            + '}); \n'
+            + ' <\/script> \n';
 
             var generatedHTMLcode = document.getElementById("generatedHTMLcode");
             generatedHTMLcode.innerText = '<button id=\'verify_btn\'>' + (btntext.value ? btntext.value : 'Verify your NFT') + '</button>';   

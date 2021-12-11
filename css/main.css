@@ -1,0 +1,9 @@
+#verify_btn {
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    font-size: 110%;
+    border: 2px solid #4e4e4e;
+    border-radius: 12px;
+}
