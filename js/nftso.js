@@ -1,4 +1,4 @@
-async function manage_ethereum(network, nftaddress, tokenstandard, tokenid = "") {
+async function NftsoInit(network, nftaddress, tokenstandard, tokenid = "") {
 
     if (typeof window['ethereum'] === 'undefined') {
         alert("MetaMask is not installed!");

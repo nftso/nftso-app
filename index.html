@@ -1159,7 +1159,7 @@ x                <div class="item">
             const origin = window.location.origin;
 
             var generatedJScode = document.getElementById("generatedJScode");
-            generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script>'
+            generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/nftso.js\'><\/script>'
             + '<script> function verifyNFT() { '
             + 'openVerificationPopup();'
             + '}<\/script>';
@@ -1212,18 +1212,18 @@ x                <div class="item">
 
         function generateCode() {
             var generatedJScode = document.getElementById("generatedJScode");
-            // generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script>'
+            // generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/nftso.js\'><\/script>'
             // + '<script> function verifyNFT() { '
             // + 'openVerificationPopup(' + '\'' +network.value + '\', ' + '\'' +  nftaddress.value + '\', ' + '\'' + tokenstandard.value + '\', ' + '\'' + tokenid.value + '\'' + ');'
             // + '}<\/script>';
 
             generatedJScode.innerText = '<link rel=\'stylesheet\' type=\'text/css\' href=\' ' + origin + '/css/main.css\'> \n'
-            + '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script> \n'
+            + '<script type =\'text/javascript\' src=\'' + origin + '/js/nftso.js\'><\/script> \n'
             + '<script type =\'text/javascript\'> \n'
             + 'const verify_btn = document.getElementById(\'verify_btn\'); \n'
             + 'verify_btn.addEventListener("click", (event) => { \n'
             + 'event.preventDefault(); \n'
-            + 'manage_ethereum(\' ' + network.value + ' \', \'' + nftaddress.value + '\', \'' + tokenstandard.value + '\', \'' + tokenid.value + '\').then((res) => { \n'
+            + 'NftsoInit(\' ' + network.value + ' \', \'' + nftaddress.value + '\', \'' + tokenstandard.value + '\', \'' + tokenid.value + '\').then((res) => { \n'
             + 'if(res) { \n'
             + '   <!--  USER OWNS YOUR NFT TOKEN --> \n'
             + '   <!--  DEFINE YOUR ACTIONS FOR NFT HOLDERS --> \n'

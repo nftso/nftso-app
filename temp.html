@@ -11,16 +11,16 @@
 
     ================
 
-    <!-- <script type ='text/javascript' src='file:///C:/YG/Others/digikon-nfts/digikon-nfts-new/js/widget_main.js'></script> -->
+    <!-- <script type ='text/javascript' src='file:///C:/YG/Others/digikon-nfts/digikon-nfts-new/js/nftso.js'></script> -->
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/main.css">
-    <script type ='text/javascript' src='http://localhost:8080/js/widget_main.js'></script>
+    <script type ='text/javascript' src='http://localhost:8080/js/nftso.js'></script>
     <!-- <script> function verifyNFT() { openVerificationPopup('Ethereum', '123456789', 'erc721');}</script> -->
     
     <script type="text/javascript">
         const verify_btn = document.getElementById('verify_btn');
         verify_btn.addEventListener("click", (event) => {
             event.preventDefault();
-            manage_ethereum('Ethereum', '0x95fcb7f46f1e652fdf23db087c0f24011775be00', 'erc1155', '10').then((res) => {
+            NftsoInit('Ethereum', '0x95fcb7f46f1e652fdf23db087c0f24011775be00', 'erc1155', '10').then((res) => {
                 if(res) {
                     // USER OWNS YOUR NFT TOKEN
                     // DEFINE YOUR ACTIONS FOR NFT HOLDERS
