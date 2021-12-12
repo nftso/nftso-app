@@ -10,6 +10,17 @@
     position: relative;
 }
 
+#verify_btn_loader {
+    background-image: url(https://i.ibb.co/pb492XY/Rolling-1s-200px.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 18px;
+    margin-left: 5px;
+    margin-bottom: -1.2px;
+    height: 16px;
+    display: inline-block;
+}
+
 #verify_btn::before {
     position: absolute;
     /* color: transparent; */

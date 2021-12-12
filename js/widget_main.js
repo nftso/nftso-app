@@ -5,6 +5,13 @@ async function manage_ethereum(network, nftaddress, tokenstandard, tokenid = "")
         return false;
     }
 
+    const verify_btn = document.getElementById('verify_btn');
+    var defaultBtnText = verify_btn.innerText;
+    try {
+        verify_btn.innerHTML = defaultBtnText + '<div id=\'verify_btn_loader\'></div>';
+    } catch(e) {
+    }
+
     const accounts = await window["ethereum"].request({
         method: "eth_requestAccounts",
     });
@@ -58,6 +65,11 @@ async function manage_ethereum(network, nftaddress, tokenstandard, tokenid = "")
     });
     const myJson = await response.json();
 
+    try {
+        verify_btn.innerHTML = defaultBtnText;
+    } catch(e) {
+        verify_btn.innerHTML = 'Verify';
+    }
     if (myJson.result === "0x0000000000000000000000000000000000000000000000000000000000000000") {
         // NO OWN
         return false;
