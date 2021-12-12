@@ -61,7 +61,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     <script type="text/javascript">
-        hljs.initHighlightingOnLoad();
+        // hljs.initHighlightingOnLoad();
     </script>
 </head>
 
@@ -682,7 +682,7 @@
                                 Copy
                             </button>
                         </div>
-                        <pre style="margin: 0;"><code class="language-xml code-preview" id="generatedJScode"></code></pre>
+                        <pre style="margin: 0;"><code class="xml code-preview" id="generatedJScode"></code></pre>
                         <!-- <div id="generatedJScode" class="code-preview"></div> -->
                         <p>&nbsp;</p>
                         <p style="margin-bottom: 0;">Place this button as per your <code>UI/UX</code> requirement</p>
@@ -1213,7 +1213,8 @@ x                <div class="item">
             event.preventDefault();
             generateCode();
         });
-
+        
+        let pluginCount = 0;
         function generateCode() {
             var generatedJScode = document.getElementById("generatedJScode");
             // generatedJScode.innerText = '<script type =\'text/javascript\' src=\'' + origin + '/js/nftso.js\'><\/script>'
@@ -1229,14 +1230,14 @@ x                <div class="item">
             + 'event.preventDefault(); \n'
             + 'NftsoInit(\' ' + network.value + ' \', \'' + nftaddress.value + '\', \'' + tokenstandard.value + '\', \'' + tokenid.value + '\').then((res) => { \n'
             + 'if(res) { \n'
-            + '   <!--  USER OWNS YOUR NFT TOKEN --> \n'
-            + '   <!--  DEFINE YOUR ACTIONS FOR NFT HOLDERS --> \n'
+            + '   //  USER OWNS YOUR NFT TOKEN  \n'
+            + '   //  DEFINE YOUR ACTIONS FOR NFT HOLDERS --> \n'
             + '} else { \n'
-            + '   <!--  USER DOES NOT OWN YOUR NFT TOKEN --> \n'
-            + '   <!--  DEFINE YOUR ACTIONS FOR NON HOLDERS --> \n'
+            + '   //  USER DOES NOT OWN YOUR NFT TOKEN  \n'
+            + '   //  DEFINE YOUR ACTIONS FOR NON HOLDERS  \n'
             + '} \n'
             + '}).catch((err) => { \n'
-            + 'alert("Failed to connect to MetaMask, Try to reload the page"); \n'
+            + '   alert("Failed to connect to MetaMask, Try to reload the page"); \n'
             + '}); \n'
             + '}); \n'
             + ' <\/script> \n';
@@ -1249,7 +1250,25 @@ x                <div class="item">
             var previewBtn = document.getElementById("verify_btn_preview");
             previewBtn.innerText = (btntext.value ? btntext.value : 'Verify your NFT');
 
-            hljs.initHighlightingOnLoad();
+            // hljs.initHighlightingOnLoad();
+            hljs.highlightAll();
+
+            const brPlugin = {
+                "before:highlightBlock": ({ block }) => {
+                block.innerHTML = block.innerHTML.replaceAll(/\n/g, '').replaceAll(/<br[ /]*>/g, '\n');
+                },
+                "after:highlightBlock": ({ result }) => {
+                result.value = result.value.replaceAll(/\n/g, "<br>");
+                }
+            };
+            // how to use it
+            if(pluginCount === 0) {
+                // hljs.highlightAll();
+                hljs.addPlugin(brPlugin);
+                pluginCount = 1;
+            }
+
+            // hljs.highlightAll();
 
         }
         generateCode();
