@@ -2,8 +2,8 @@
     background-color: black;
     color: white;
     font-weight: 500;
-    padding: 10px 14px 10px 40px;
-    font-size: 110%;
+    padding: 10px 14px 10px 45px;
+    font-size: 18px;
     border: 2px solid #4e4e4e;
     border-radius: 12px;
     cursor: pointer;
@@ -17,10 +17,12 @@
     background-image: url(https://i.ibb.co/SP1y1YC/NFTSO-Logo-C-F-Mob-Dev-07-2.png);
     background-repeat: no-repeat;
     padding-right: 39px;
-    padding-bottom: 39px;
+    /* padding-bottom: 35px; */
     background-size: 30px;
-    top: 4px;
+    top: 0;
+    bottom: 0;
     left: 4px;
+    background-position: center;
 
     /* font-size: 35px;
     line-height: 33px;
@@ -47,10 +49,10 @@
 #verify_btn::after {
     content: "⚡ Powered by NFTSO";
     color: gray;
-    text-shadow: -0.1px 0.1px 0 #000,
+    /* text-shadow: -0.1px 0.1px 0 #000,
     0.1px 0.1px 0 #000,
     0.1px -0.1px 0 #000,
-                        -0.1px -0.1px 0 #000;
+                        -0.1px -0.1px 0 #000; */
     position: absolute;
     bottom: -21px;
     right: 2px;
@@ -63,8 +65,8 @@
     background-color: black;
     color: white;
     font-weight: 500;
-    padding: 10px 14px 10px 40px;
-    font-size: 110%;
+    padding: 10px 14px 10px 45px;
+    font-size: 18px;
     border: 2px solid #4e4e4e;
     border-radius: 12px;
     cursor: default;
@@ -78,19 +80,21 @@
     background-image: url(https://i.ibb.co/SP1y1YC/NFTSO-Logo-C-F-Mob-Dev-07-2.png);
     background-repeat: no-repeat;
     padding-right: 39px;
-    padding-bottom: 39px;
+    /* padding-bottom: 35px; */
     background-size: 30px;
-    top: 4px;
+    top: 0;
+    bottom: 0;
     left: 4px;
+    background-position: center;
 }
 
 #verify_btn_preview::after {
     content: "⚡ Powered by NFTSO";
     color: gray;
-    text-shadow: -0.1px 0.1px 0 #000,
+    /* text-shadow: -0.1px 0.1px 0 #000,
     0.1px 0.1px 0 #000,
     0.1px -0.1px 0 #000,
-                        -0.1px -0.1px 0 #000;
+                        -0.1px -0.1px 0 #000; */
     position: absolute;
     bottom: -21px;
     right: 2px;

@@ -43,7 +43,11 @@
 
     <!-- <script type ="text/javascript" src="js/widget.js"></script> -->
     
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <body>
@@ -702,19 +706,24 @@
                         <button id='verify_btn_preview'></button> -->
                     </div>
                     <div id="codeTabContent" class="foo_widget footer_sub_form">
+
+                        <!-- <pre><code class="xml code-preview" id="generatedHTMLcode">
+                        </code></pre> -->
+
                         <p style="margin-bottom: 0;">Place this code at in <code>body</code> tag</p>
                         <div style="text-align: right; margin-bottom: -2px;">
                             <button id="js_copy_btn" class="copy-btn">Copy</button>
                         </div>
-                        <div id="generatedJScode" class="code-preview"></div>
+                        <pre style="margin: 0;"><code class="language-xml code-preview" id="generatedJScode"></code></pre>
+                        <!-- <div id="generatedJScode" class="code-preview"></div> -->
                         <p>&nbsp;</p>
                         <p style="margin-bottom: 0;">Place this button as per your <code>UI/UX</code> requirement</p>
                         <div style="text-align: right; margin-bottom: -2px;">
                             <button id="html_copy_btn" class="copy-btn">Copy</button>
                         </div>
-                        <div id="generatedHTMLcode" class="code-preview"></div>
-                        <!-- <br />
-                        <button id='verify_btn_preview'></button> -->
+                        <pre style="margin: 0;"><code class="language-html code-preview" id="generatedHTMLcode">
+                        </code></pre>
+                        <!-- <div id="generatedHTMLcode" class="code-preview"></div> -->
                     </div>
                 </div>
             </div>
@@ -1216,11 +1225,11 @@ x                <div class="item">
             + 'event.preventDefault(); \n'
             + 'manage_ethereum(\' ' + network.value + ' \', \'' + nftaddress.value + '\', \'' + tokenstandard.value + '\', \'' + tokenid.value + '\').then((res) => { \n'
             + 'if(res) { \n'
-            + '   // USER OWNS YOUR NFT TOKEN \n'
-            + '   // DEFINE YOUR ACTIONS FOR NFT HOLDERS \n'
+            + '   <!--  USER OWNS YOUR NFT TOKEN --> \n'
+            + '   <!--  DEFINE YOUR ACTIONS FOR NFT HOLDERS --> \n'
             + '} else { \n'
-            + '   // USER DOES NOT OWN YOUR NFT TOKEN \n'
-            + '   // DEFINE YOUR ACTIONS FOR NON HOLDERS \n'
+            + '   <!--  USER DOES NOT OWN YOUR NFT TOKEN --> \n'
+            + '   <!--  DEFINE YOUR ACTIONS FOR NON HOLDERS --> \n'
             + '} \n'
             + '}).catch((err) => { \n'
             + 'alert("Failed to connect to MetaMask, Try to reload the page"); \n'
@@ -1229,11 +1238,14 @@ x                <div class="item">
             + ' <\/script> \n';
 
             var generatedHTMLcode = document.getElementById("generatedHTMLcode");
-            generatedHTMLcode.innerText = '<button id=\'verify_btn\'>' + (btntext.value ? btntext.value : 'Verify your NFT') + '</button>';  
+            generatedHTMLcode.innerText = '<button id=\'verify_btn\'>' + (btntext.value ? btntext.value : 'Verify your NFT') + '</button>';
+            // generatedHTMLcode.innerText = generatedHTMLcode.innerText.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
             
             // SETUP PREVIEW BUTTON
             var previewBtn = document.getElementById("verify_btn_preview");
             previewBtn.innerText = (btntext.value ? btntext.value : 'Verify your NFT');
+
+            hljs.initHighlightingOnLoad();
 
         }
         generateCode();
