@@ -61,7 +61,7 @@
             <label for="show-menu" class="menu-icon"><i class="fal fa-bars"></i></label>
             <div class="menu_content">
                 <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" alt=""></a>
+                    <a href="index.html"><img style="max-width: 241px; max-height: 100px;" src="images/logo.png" alt=""></a>
                 </div>
                 <!-- ./logo -->
                 <ul class="links">
@@ -682,15 +682,33 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-6 col-sm-12">
-                    <div class="foo_widget footer_sub_form">
+                <div class="col-lg-7 col-md-6 col-sm-12" style="padding-left: 4%;">
+                    <div class="nftso-tabs-container">
+                        <div class="nftso-tab" id="previewTab" style="width: 50%;">
+                            <h4>Preview</h4>
+                            <div class="tab-selected" id="previewTabActive"></div>
+                        </div>
+                        <div class="nftso-tab" id="codeTab" style="width: 50%;">
+                            <h4>Code</h4>
+                            <div class="tab-selected" id="codeTabActive"></div>
+                        </div>
+                    </div>
+                    <div id="previewTabContent">
+                        <div class="code-preview" style="min-height: 135px; text-align: center; margin-top: 35px;">
+                            <br />
+                            <button id='verify_btn_preview'></button>
+                        </div>
+                        <!-- <br />
+                        <button id='verify_btn_preview'></button> -->
+                    </div>
+                    <div id="codeTabContent" class="foo_widget footer_sub_form">
                         <p>Place this code at in <code>body</code> tag</p>
                         <div id="generatedJScode" class="code-preview"></div>
                         <p>&nbsp;</p>
                         <p>Place this button as per your <code>UI/UX</code> requirement</p>
                         <div id="generatedHTMLcode" class="code-preview"></div>
-                        <br />
-                        <button id='verify_btn_preview'></button>
+                        <!-- <br />
+                        <button id='verify_btn_preview'></button> -->
                     </div>
                 </div>
             </div>
@@ -1113,7 +1131,7 @@ x                <div class="item">
     <script src="js/main.js"></script>
 
     <script type ="text/javascript" src="js/widget.js"></script>
-    <script>
+    <!-- <script>
         const f = document.getElementById("form");
         console.log({f});
         f.addEventListener("submit", (event) => {
@@ -1135,7 +1153,7 @@ x                <div class="item">
         var generatedHTMLcode = document.getElementById("generatedHTMLcode");
         generatedHTMLcode.innerText = '<button id=\'verify_btn\'>Verify</button>';
 
-    </script>
+    </script> -->
 
     <script>
         const form = document.getElementById("form");
@@ -1147,8 +1165,6 @@ x                <div class="item">
         const btntext = document.getElementById("btntext");
 
         const origin = window.location.origin;
-
-        console.log('--- ', window.location);
 
         network.addEventListener("change", (event) => {
             event.preventDefault();
@@ -1186,7 +1202,7 @@ x                <div class="item">
             // + 'openVerificationPopup(' + '\'' +network.value + '\', ' + '\'' +  nftaddress.value + '\', ' + '\'' + tokenstandard.value + '\', ' + '\'' + tokenid.value + '\'' + ');'
             // + '}<\/script>';
 
-            generatedJScode.innerText = '<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/main.css"> \n'
+            generatedJScode.innerText = '<link rel=\'stylesheet\' type=\'text/css\' href=\' ' + origin + '/css/main.css\'> \n'
             + '<script type =\'text/javascript\' src=\'' + origin + '/js/widget_main.js\'><\/script> \n'
             + '<script type =\'text/javascript\'> \n'
             + 'const verify_btn = document.getElementById(\'verify_btn\'); \n'
@@ -1217,6 +1233,45 @@ x                <div class="item">
         generateCode();
         tokenid.disabled = true;
         tokenid.placeholder = "--- Not required ---";
+
+        const previewTab = document.getElementById('previewTab');
+        const previewTabActive = document.getElementById('previewTabActive');
+        const previewTabContent = document.getElementById('previewTabContent');
+        const codeTab = document.getElementById('codeTab');
+        const codeTabActive = document.getElementById('codeTabActive');
+        const codeTabContent = document.getElementById('codeTabContent');
+
+        previewTab.addEventListener("click", (event) => {
+            event.preventDefault();
+            manageTab('preview');
+        });
+
+        codeTab.addEventListener("click", (event) => {
+            event.preventDefault();
+            manageTab('code');
+        });
+
+        function manageTab(tabName) {
+            previewTabActive.style.visibility = 'hidden';
+            codeTabActive.style.visibility = 'hidden';
+            previewTabContent.style.visibility = 'hidden';
+            codeTabContent.style.visibility = 'hidden';
+            previewTabContent.style.height = 0;
+            codeTabContent.style.height = 0;
+
+            if (tabName === 'preview') {
+                previewTabActive.style.visibility = 'visible';
+                previewTabContent.style.visibility = 'visible';
+                previewTabContent.style.height = 'auto';
+            } else {
+                codeTabActive.style.visibility = 'visible';
+                codeTabContent.style.visibility = 'visible';
+                codeTabContent.style.height = 'auto';
+            }
+
+        }
+        manageTab('preview');
+
     </script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </body>

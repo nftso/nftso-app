@@ -12,7 +12,7 @@
 
 #verify_btn::before {
     position: absolute;
-    color: transparent;
+    /* color: transparent; */
     content: " ";
     background-image: url(https://i.ibb.co/Z62qcrg/NFTSO-Logo-F-Mob-Dev-07.png);
     background-repeat: no-repeat;
@@ -73,7 +73,7 @@
 
 #verify_btn_preview::before {
     position: absolute;
-    color: transparent;
+    /* color: transparent; */
     content: " ";
     background-image: url(https://i.ibb.co/Z62qcrg/NFTSO-Logo-F-Mob-Dev-07.png);
     background-repeat: no-repeat;
@@ -105,6 +105,30 @@
     padding: 12px 16px;
     border: 1px solid lightgray;
     border-radius: 3px;
-    max-height: 225px;
+    max-height: 230px;
     overflow: auto;
+}
+
+.nftso-tabs-container {
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 21px;
+}
+
+.nftso-tab {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.tab-selected {
+    position: absolute;
+    content: "";
+    width: 110px;
+    height: 2px;
+    background: #dd4142;
+    opacity: .7;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
 }
