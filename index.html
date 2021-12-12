@@ -712,14 +712,18 @@
 
                         <p style="margin-bottom: 0;">Place this code at in <code>body</code> tag</p>
                         <div style="text-align: right; margin-bottom: -2px;">
-                            <button id="js_copy_btn" class="copy-btn">Copy</button>
+                            <button id="js_copy_btn" class="copy-btn">
+                                Copy
+                            </button>
                         </div>
                         <pre style="margin: 0;"><code class="language-xml code-preview" id="generatedJScode"></code></pre>
                         <!-- <div id="generatedJScode" class="code-preview"></div> -->
                         <p>&nbsp;</p>
                         <p style="margin-bottom: 0;">Place this button as per your <code>UI/UX</code> requirement</p>
                         <div style="text-align: right; margin-bottom: -2px;">
-                            <button id="html_copy_btn" class="copy-btn">Copy</button>
+                            <button id="html_copy_btn" class="copy-btn">
+                                Copy
+                            </button>
                         </div>
                         <pre style="margin: 0;"><code class="language-html code-preview" id="generatedHTMLcode">
                         </code></pre>
@@ -1297,12 +1301,20 @@ x                <div class="item">
             event.preventDefault();
             var generatedJScode = document.getElementById("generatedJScode");
             copyToClipboard(generatedJScode.innerText);
+            js_copy_btn.innerText = 'Copied!';
+            setTimeout(() => {
+                js_copy_btn.innerText = 'Copy';
+            }, 10000);
         });
 
         html_copy_btn.addEventListener("click", (event) => {
             event.preventDefault();
             var generatedHTMLcode = document.getElementById("generatedHTMLcode");
             copyToClipboard(generatedHTMLcode.innerText);
+            html_copy_btn.innerText = 'Copied!';
+            setTimeout(() => {
+                html_copy_btn.innerText = 'Copy';
+            }, 10000)
         });
 
         function copyToClipboard(val){
