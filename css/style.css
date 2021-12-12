@@ -955,7 +955,7 @@ nav .menu_content .links {
 
 .hero-section {
   background: #121318;
-  background: url("../images/banner1.jpg");
+  background: url("../images/banner1.png");
   padding-bottom: 8px;
   padding-top: 85px;
   height: 800px;
@@ -964,9 +964,10 @@ nav .menu_content .links {
   position: relative;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 }
 
-.hero-section::before {
+/* .hero-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -979,7 +980,7 @@ nav .menu_content .links {
   background-size: cover;
   -webkit-animation: FocuS 1s linear 1s infinite;
   animation: FocuS 1s linear 1s infinite;
-}
+} */
 
 
 /* ---- heading ---- */
@@ -4778,3 +4779,31 @@ Featured Assets
 .themelight .discover-section.live_auctions_light {
   background: #f6f9fe;
 }
+
+.css-one {
+  display: inline-block;
+}
+
+.css-one:after {
+  content: "1";
+  margin-left: -3px;
+}
+
+.css-two {
+  display: inline-block;
+}
+
+.css-two:after {
+  content: "2";
+  margin-left: -3px;
+}
+
+.css-three {
+  display: inline-block;
+}
+
+.css-three:after {
+  content: "3";
+  margin-left: -3px;
+}
+
