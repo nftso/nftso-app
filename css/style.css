@@ -1807,7 +1807,8 @@ footer.footer-section {
   width: 100%;
   padding: 98px 0 0 0;
   color: #fff;
-  background: #121318 url("../images/footer-bg.png");
+  /* background: #121318 url("../images/footer-bg.png"); */
+  background: #121318;
 }
 
 .footer-section .row {
