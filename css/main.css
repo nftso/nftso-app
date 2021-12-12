@@ -12,14 +12,15 @@
 }
 
 #verify_btn_loader {
-    background-image: url(https://i.ibb.co/pb492XY/Rolling-1s-200px.gif);
+    background-image: url(https://i.ibb.co/dcDKwZz/output-onlinegiftools.gif);
     background-repeat: no-repeat;
     background-position: center;
     width: 18px;
-    margin-left: 5px;
+    margin-left: 9px;
     margin-bottom: -1.2px;
     height: 16px;
     display: inline-block;
+    background-size: contain;
 }
 
 #verify_btn::before {
