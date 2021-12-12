@@ -656,7 +656,7 @@
                             Create your own widget as per your website requirements.
                         </p>
                         <!-- <form id="form" method="post" action="mailer.php"> -->
-                        <form id="form" action="/" method="post" accept-charset="utf-8">
+                        <form id="form" action="/" method="post" accept-charset="utf-8" style="padding-top: 15px;">
                             <label style="padding-left: 0.3rem;" for="network">Network</label>
                             <select class="con-field" name="network" id="network">
                                 <option value="Polygon">Polygon</option>
@@ -702,10 +702,16 @@
                         <button id='verify_btn_preview'></button> -->
                     </div>
                     <div id="codeTabContent" class="foo_widget footer_sub_form">
-                        <p>Place this code at in <code>body</code> tag</p>
+                        <p style="margin-bottom: 0;">Place this code at in <code>body</code> tag</p>
+                        <div style="text-align: right; margin-bottom: -2px;">
+                            <button id="js_copy_btn" class="copy-btn">Copy</button>
+                        </div>
                         <div id="generatedJScode" class="code-preview"></div>
                         <p>&nbsp;</p>
-                        <p>Place this button as per your <code>UI/UX</code> requirement</p>
+                        <p style="margin-bottom: 0;">Place this button as per your <code>UI/UX</code> requirement</p>
+                        <div style="text-align: right; margin-bottom: -2px;">
+                            <button id="html_copy_btn" class="copy-btn">Copy</button>
+                        </div>
                         <div id="generatedHTMLcode" class="code-preview"></div>
                         <!-- <br />
                         <button id='verify_btn_preview'></button> -->
@@ -1271,6 +1277,35 @@ x                <div class="item">
 
         }
         manageTab('preview');
+
+        const js_copy_btn = document.getElementById('js_copy_btn');
+        const html_copy_btn = document.getElementById('html_copy_btn');
+
+        js_copy_btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            var generatedJScode = document.getElementById("generatedJScode");
+            copyToClipboard(generatedJScode.innerText);
+        });
+
+        html_copy_btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            var generatedHTMLcode = document.getElementById("generatedHTMLcode");
+            copyToClipboard(generatedHTMLcode.innerText);
+        });
+
+        function copyToClipboard(val){
+            const selBox = document.createElement('textarea');
+            selBox.style.position = 'fixed';
+            selBox.style.left = '0';
+            selBox.style.top = '0';
+            selBox.style.opacity = '0';
+            selBox.value = val;
+            document.body.appendChild(selBox);
+            selBox.focus();
+            selBox.select();
+            document.execCommand('copy');
+            document.body.removeChild(selBox);
+        }
 
     </script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
