@@ -4807,3 +4807,15 @@ Featured Assets
   margin-left: -3px;
 }
 
+.app-btn {
+  font-size: 16px;
+    background: #871d51;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    padding: 12px 0px;
+    font-weight: 500;
+    width: 128px;
+    margin-top: 0px;
+    border: none;
+}
