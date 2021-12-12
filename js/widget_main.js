@@ -8,6 +8,12 @@ async function manage_ethereum(network, nftaddress, tokenstandard, tokenid = "")
     const verify_btn = document.getElementById('verify_btn');
     var defaultBtnText = verify_btn.innerText;
     try {
+        if(defaultBtnText.includes(' ❌')) {
+            defaultBtnText = defaultBtnText.replace(' ❌', '');
+        }
+        if(defaultBtnText.includes(' ✔️')) {
+            defaultBtnText = defaultBtnText.replace(' ✔️', '');
+        }
         verify_btn.innerHTML = defaultBtnText + '<div id=\'verify_btn_loader\'></div>';
     } catch(e) {
     }
@@ -66,13 +72,20 @@ async function manage_ethereum(network, nftaddress, tokenstandard, tokenid = "")
     const myJson = await response.json();
 
     try {
-        verify_btn.innerHTML = defaultBtnText;
-    } catch(e) {
-        verify_btn.innerHTML = 'Verify';
-    }
+        if(defaultBtnText.includes(' ❌')) {
+            defaultBtnText = defaultBtnText.replace(' ❌', '');
+        }
+        if(defaultBtnText.includes(' ✔️')) {
+            defaultBtnText = defaultBtnText.replace(' ✔️', '');
+        }
+    } catch(e) {}
+
     if (myJson.result === "0x0000000000000000000000000000000000000000000000000000000000000000") {
         // NO OWN
+        verify_btn.innerHTML = defaultBtnText + ' ❌';
         return false;
+    } else {
+        verify_btn.innerHTML = defaultBtnText + ' ✔️';
     }
     return true;
 }
