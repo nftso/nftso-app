@@ -62,7 +62,10 @@ async function NftsoInit(network, nftaddress, tokenstandard, tokenid = "") {
         };
     }
 
-    const response = await fetch("https://polygon-rpc.com", {
+    // const response = await fetch("https://polygon-rpc.com", {
+
+    var networkname = (network == 'Polygon') ? 'polygon' : 'ethereum';
+    const response = await fetch("https://api.nftso.io/verify?chain=" + networkname, {
         method: "POST",
         body: JSON.stringify(body),
         headers: {
@@ -79,6 +82,12 @@ async function NftsoInit(network, nftaddress, tokenstandard, tokenid = "") {
             defaultBtnText = defaultBtnText.replace(' ✔️', '');
         }
     } catch(e) {}
+
+    if(!myJson.result) {
+        // NO OWN
+        verify_btn.innerHTML = defaultBtnText + ' ❌';
+        return false;
+    }
 
     if (myJson.result === "0x0000000000000000000000000000000000000000000000000000000000000000") {
         // NO OWN
