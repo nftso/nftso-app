@@ -84,11 +84,12 @@
                 </div>
                 <!-- ./logo -->
                 <ul class="links">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#howitworks">How it Works</a></li>
-                    <li><a href="index.html#usecases">Usecases</a></li>
-                    <li><a style="border-radius: 36px;" class="app-btn" href="index.html#widget">Get Started</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#howitworks">How it Works</a></li>
+                    <li><a href="#usecases">Usecases</a></li>
+                    <li><a style="border-radius: 36px;" class="app-btn" href="#widget">Get Started</a></li>
+
 
                     <!-- <li>
                         <a href="discover.html" class="desktop-link"> Home
@@ -219,7 +220,8 @@
                         <div class="hero_text">
                             <h2> NFT Sign On Service <br />for Web 3.0 </h2>
                             <p> Install the NFTSO in your websites and instantly allow your NFT holders to access the exclusive content. No manual verification of holders. </p>
-                            <!-- <a href="index.html#" class="more-link"> Get Started </a> -->
+                            <a href="index.html#widget" style="border-radius: 50px;" class="more-link"> Get Started </a>
+                            <a id="demo_btn" style="border-radius: 50px;" class="more-link mx-sm-2"> Demo </a>
                         </div>
                     </div>
                     <!-- <div class="col-md-6 col-sm-12">
@@ -494,7 +496,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/QvS7mfB/Website-Gateway-Banner-Sample-1-01-03.png" alt="image">
+                        <img src="images/usecase1.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller7.jpg" alt=""> @farkunh </span> -->
                         </div>
@@ -519,7 +521,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/h1yLSGB/Excl-Ev-Banner-Sample-1-01.png" alt="image">
+                        <img src="images/usecase2.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller6.jpg" alt=""> @josefgo </span> -->
                         </div>
@@ -547,7 +549,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/Lkxg4Dn/ECommerce-Banner-Sample-1-02.png" alt="image">
+                        <img src="images/usecase3.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller5.jpg" alt=""> @billerro </span> -->
                         </div>
@@ -561,7 +563,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/85Ts40G/Video-Access-Banner-Sample-1-04.png" alt="image">
+                        <img src="images/usecase4.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller4.jpg" alt=""> @dekarko </span> -->
                         </div>
@@ -576,7 +578,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/5KP00ZS/Giveaway-Banner-Sample-1-06.png" alt="image">
+                        <img src="images/usecase5.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller3.jpg" alt=""> @cimper </span> -->
                         </div>
@@ -590,7 +592,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                     <div class="discover_item" style="height: 100%;">
-                        <img src="https://i.ibb.co/qxFrjKL/Partnership-Banner-Sample-1-05.png" alt="image">
+                        <img src="images/usecase6.png" alt="image">
                         <div class="discover_seller_img">
                             <!-- <span class="discover_seller_name"> <img src="images/seller2.jpg" alt=""> @faberk </span> -->
                         </div>
@@ -1182,6 +1184,13 @@ x                <div class="item">
         const tokenstandard = document.getElementById("tokenstandard");
         const tokenid = document.getElementById("tokenid");
         const btntext = document.getElementById("btntext");
+
+        const demobtn = document.getElementById("demo_btn");
+
+        demobtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.open("https://demo.nftso.io", "_blank");
+        })
 
         const origin = window.location.origin;
 

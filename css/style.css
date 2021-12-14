@@ -599,7 +599,7 @@ nav .menu_content .links {
 .menu_content .links li a:hover,
 .menu_content .links li label:hover {
   background: transparent;
-  color: #871d51 !important;
+  color: #871d51;
   transform: translateX(5px);
   transition: .3s;
 }
@@ -4819,4 +4819,9 @@ Featured Assets
     width: 128px;
     margin-top: 0px;
     border: none;
+}
+
+.app-btn:hover {
+  color: #871d51 !important;
+  background: white !important;
 }
